@@ -10,4 +10,15 @@ Possible measures:
 
 Existing projects:
 * Copernicus from the European Union ([link](https://www.copernicus.eu/en/about-copernicus))
-* 
+
+
+### 2. Football
+Possible measures:
+* Internation football results ([link](https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017))
+* FIFA Soccer ratings ([link](https://www.kaggle.com/tadhgfitzgerald/fifa-international-soccer-mens-ranking-1993now))
+* Spanish league matches ([link](https://www.kaggle.com/ricardomoya/football-matches-of-spanish-league))
+
+Existing projects:
+* 50 Years Of World Cup Doppelgangers ([link](https://projects.fivethirtyeight.com/world-cup-comparisons/))
+* 2018 World Cup Predictions ([link](https://projects.fivethirtyeight.com/2018-world-cup-predictions/))
+* Club Soccer Predictions ([link](https://projects.fivethirtyeight.com/soccer-predictions/))
