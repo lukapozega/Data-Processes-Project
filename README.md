@@ -22,3 +22,13 @@ Existing projects:
 * 50 Years Of World Cup Doppelgangers ([link](https://projects.fivethirtyeight.com/world-cup-comparisons/))
 * 2018 World Cup Predictions ([link](https://projects.fivethirtyeight.com/2018-world-cup-predictions/))
 * Club Soccer Predictions ([link](https://projects.fivethirtyeight.com/soccer-predictions/))
+
+### 3. Erasmus
+
+Possible measures:
+* Erasmus mobility statistics 2012-13 ([link](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13))
+* Erasmus mobility statistics 2013-14 ([link](http://data.europa.eu/euodp/data/dataset/erasmus-mobility-statistics-2013-14))
+* Erasmus mobility statistics 2010-11 ([link](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2011-12))
+
+Exisiting projects:
+* Gender Gap in the ERASMUS Mobility Program ([link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4762674/))
