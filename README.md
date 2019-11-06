@@ -1,34 +1,36 @@
 # Data-Processes-Project
 
-## Topics
+## ERASMUS+ Mobility Programme
 
-### 1. Environmental Development of Europe 
-Possible measures:
-* Greenhouse gas emissions ([link](https://ec.europa.eu/eurostat/databrowser/view/t2020_30/default/table?lang=en))
-* Energy tax revenues ([link](https://ec.europa.eu/eurostat/databrowser/view/t2020_rt300/default/table?lang=en))
-* Share of renewable energy ([link](https://ec.europa.eu/eurostat/databrowser/view/sdg_07_40/default/table?lang=en))
+Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. One of the main things it offers is student and teaching staff exchange inside of the EU. More about the programme can be found [here](https://ec.europa.eu/programmes/erasmus-plus/node_en).
 
-Existing projects:
-* Copernicus from the European Union ([link](https://www.copernicus.eu/en/about-copernicus))
+We have chosen to explore this domain since all of the contributors to this project are currently on their Erasmus exchange. Each one of us is familiar with the whole process of enrollment thus we would like to see it through data. It will be interesting to see how our decision and preference compare to other students from Europe.
 
+### Related work
 
-### 2. Football
-Possible measures:
-* Internation football results ([link](https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017))
-* FIFA Soccer ratings ([link](https://www.kaggle.com/tadhgfitzgerald/fifa-international-soccer-mens-ranking-1993now))
-* Spanish league matches ([link](https://www.kaggle.com/ricardomoya/football-matches-of-spanish-league))
-
-Existing projects:
-* 50 Years Of World Cup Doppelgangers ([link](https://projects.fivethirtyeight.com/world-cup-comparisons/))
-* 2018 World Cup Predictions ([link](https://projects.fivethirtyeight.com/2018-world-cup-predictions/))
-* Club Soccer Predictions ([link](https://projects.fivethirtyeight.com/soccer-predictions/))
-
-### 3. Erasmus
-
-Possible measures:
-* Erasmus mobility statistics 2012-13 ([link](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13))
-* Erasmus mobility statistics 2013-14 ([link](http://data.europa.eu/euodp/data/dataset/erasmus-mobility-statistics-2013-14))
-* Erasmus mobility statistics 2010-11 ([link](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2011-12))
-
-Exisiting projects:
 * Gender Gap in the ERASMUS Mobility Program ([link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4762674/))
+   + Project analyzes the mobility pattern within this program in 2011-12 to find a gender gap across countries and subject areas. Among other things it finds out that female students are over-represented in the ERASMUS program when compared to the entire population of tertiary students.
+
+* Barriers to International Student Mobility Evidence From the Erasmus Program ([link](https://www.researchgate.net/publication/258134759_Barriers_to_International_Student_Mobility_Evidence_From_the_Erasmus_Program))
+    + Project compares participants and nonparticipants to discover factors that support or limit student mobility. Results reveal the overall impact of financial barriers but suggest that it is personal barriers that help us to better differentiate between Erasmus and non-Erasmus students.
+* Social and Economic Conditions of Student Life in Europe: Chapter 8. Internationalisation and student mobility ([link](https://books.google.es/books?id=E5EBLiBIFrEC&pg=PA130&lpg=PA130&dq=student+mobility+dataset+project&source=bl&ots=L4hMMvLoUQ&sig=ACfU3U1Lx9TTlmDVVE2E6r6tOK1hGRMjrQ&hl=hr&sa=X&ved=2ahUKEwicj_X51dXlAhVNXRoKHfYtCooQ6AEwCXoECAoQAQ#v=onepage&q=student%20mobility%20dataset%20project&f=false))
+    + In this book chapter about student mobility can be found. It tries to answer general questions like most commonly destiniation, at what part of the studying students usually go on exchange, languages spoken etc.
+
+### Questions
+
+* Question 1
+* Question 2
+* Question 3
+
+## Data
+
+* Erasmus mobility 2011-12 dataset
+    + Data is available [here](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2011-12)
+    + Data the statistical reports of the National Agencies of the 33 countries participating in the Erasmus Programme for the academic year 2011-12 (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions).
+    + It contains 32 variables and 252827 observations
+    + _[TODO] What questions can be answered_
+
+* Dataset 2
+* Dataset 3
+
+
