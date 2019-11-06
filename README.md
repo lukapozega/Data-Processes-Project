@@ -24,7 +24,7 @@ We have chosen to explore this domain since all of the contributors to this proj
 
 ## Data
 
-* Erasmus mobility 2011-12 dataset
+* Erasmus student mobility 2011-12 dataset
     + Data is available [here](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2011-12)
     + Data the statistical reports of the National Agencies of the 33 countries participating in the Erasmus Programme for the academic year 2011-12 (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions).
     + It contains 32 variables and 252827 observations
