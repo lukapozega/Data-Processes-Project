@@ -1,12 +1,9 @@
-# Data-Processes-Project
-
-## ERASMUS+ Mobility Program
-
+# Data-Processes-Project: ERASMUS+ Mobility Program
 Erasmus+ is the EU's program to support education, training, youth and sport in Europe. One of the main things it offers is the student and teaching staff exchange inside of the EU. More about the programme can be found [here](https://ec.europa.eu/programmes/erasmus-plus/node_en).
 
 We have chosen to explore this domain since all of the contributors to this project are currently on their Erasmus exchange. Each one of us is familiar with the whole process and the choices to be made thus we would like to see it through data. It will be interesting to see how our decision and preference compare to other students from Europe.
 
-### Related work
+## Related work
 
 * Gender Gap in the ERASMUS Mobility Program ([link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4762674/))
    + Project analyzes the mobility pattern within this program in 2011-12 to find a gender gap across countries and subject areas. Among other things it finds out that female students are over-represented in the ERASMUS program when compared to the entire population of tertiary students.
@@ -16,7 +13,7 @@ We have chosen to explore this domain since all of the contributors to this proj
 * Social and Economic Conditions of Student Life in Europe: Chapter 8. Internationalisation and student mobility ([link](https://books.google.es/books?id=E5EBLiBIFrEC&pg=PA130&lpg=PA130&dq=student+mobility+dataset+project&source=bl&ots=L4hMMvLoUQ&sig=ACfU3U1Lx9TTlmDVVE2E6r6tOK1hGRMjrQ&hl=hr&sa=X&ved=2ahUKEwicj_X51dXlAhVNXRoKHfYtCooQ6AEwCXoECAoQAQ#v=onepage&q=student%20mobility%20dataset%20project&f=false))
     + In this book chapter about student mobility can be found. It tries to answer general questions like most commonly destiniation, at what part of the studying students usually go on exchange, languages spoken etc.
 
-### Questions
+## Questions
 
 * **Q1:** For each country: Which countries are the most popular destinations? From which countries does it recieve the most students?
 * **Q2:** Are there any tendecies in popularity of destinations? Which are the "hot" destinations? Can we predict a future "hot" destinaton?
