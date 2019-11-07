@@ -30,7 +30,7 @@ The only raw data that is available about the Erasmus+ mobility program is direc
     + It contains 32 variables and 213385 observations
     + Will answer question:
       * **Q2:** Because we can evaluate the destination choices over time
-      * **Q3:** Because it conatins information about study programs and the destinations over time
+      * **Q3:** Because it contains information about study programs and the destinations over time
 
 * Erasmus student mobility 2011-12 dataset
     + Data is available [here](http://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2011-12)  
