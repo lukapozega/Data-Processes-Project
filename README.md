@@ -1,8 +1,8 @@
 # Data-Processes-Project
 
-## ERASMUS+ Mobility Programme
+## ERASMUS+ Mobility Program
 
-Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. One of the main things it offers is the student and teaching staff exchange inside of the EU. More about the programme can be found [here](https://ec.europa.eu/programmes/erasmus-plus/node_en).
+Erasmus+ is the EU's program to support education, training, youth and sport in Europe. One of the main things it offers is the student and teaching staff exchange inside of the EU. More about the programme can be found [here](https://ec.europa.eu/programmes/erasmus-plus/node_en).
 
 We have chosen to explore this domain since all of the contributors to this project are currently on their Erasmus exchange. Each one of us is familiar with the whole process and the choices to be made thus we would like to see it through data. It will be interesting to see how our decision and preference compare to other students from Europe.
 
