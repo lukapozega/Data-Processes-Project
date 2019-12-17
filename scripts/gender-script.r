@@ -18,5 +18,6 @@ pie <- ggplot(gender, aes(x = "", y = prop, fill = gender)) +
   geom_text(aes(y = ypos, label = prop), color = "white")+
   coord_polar("y", start = 0)+
   ggpubr::fill_palette("jco")+
+  ggtitle("Difference between genders") +
   theme_void()
 
