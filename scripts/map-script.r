@@ -1,5 +1,7 @@
+## @knitr map_plot
+
 #Load data
-data <- read.csv("~/Downloads/SM_2012_13_20141103_01.csv", sep=";")
+data <- read.csv("./data/student_1213.csv", sep=";")
 
 #Filter data
 data <- data[!data$HOST_INSTITUTION_COUNTRY_CDE == "???",]
