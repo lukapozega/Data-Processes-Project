@@ -1,0 +1,1 @@
+data <- read.csv("~/Downloads/SM_2012_13_20141103_01.csv", sep=";")
