@@ -18,4 +18,22 @@ During winter semester of academic year 2019/2020 each member of our group was s
 Dataset that we used is one from 2012-2013 academic year that can be found [here](https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13). Dataset is published directly by European Union. It was created from the statistical reports of the national agencies of the 33 countries participating in the Erasmus+ program (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions). The data is generated during the application process of the student and then collected by the respective universites. It contains 267547 observations and has 34 different variables.  
 Host institution country is one of the most interesting variables to us and we can see that it has a lot of undefined values, around 55 thousand, so we need to filter those out. For both host and home country, values are coded as country codes. However Belgium is coded as three diferent values: "BEDE", "BEFR" and "BENL" depending on the language area (Dutch, France or German). We are going to merge all of this values to a single one for whole Belgium.  
 There are 34 different vairables and we are not going to use all of them, so we list ones that are most relevant for our research:
-*
+* HOME_INSTITUTION_CTRY_CDE (home country code)
+* STUDENT_GENDER_CDE (gender F/M)
+* STUDENT_AGE_VALUE (age value)
+* STUDENT_NATIONALITY_CDE (nationality code)
+* STUDENT_STUDY_LEVEL_CDE (study level - 1/2/3/S)
+* STUDENT_SUBJECT_AREA_VALUE (subject area code)
+* HOST_INSTITUTION_COUNTRY_CDE (host country code)
+* HOST_INSTITUTION_CDE (host institution code)
+* LENGTH_PLACEMENT_VALUE (length in months)
+* PLACEMENT_START_DATE (start date of exchange)
+* ECTS_CREDITS_PLACEMENT_AMT (Number of ECTS credits enrolled during exchange)
+
+First thing we wanted to explore is to see if there is a difference between number of male and females enrolled in Erasmus. We were expecting to see significant difference as one of the cited papers suggest that there is gender gap. Pie chart we presented here to confirm this assumption. 
+
+![](misc/gender-plot.png)
+
+Next we wanted to see what are the countries with most students goint to Erasmus. In order to not just list them, we decided to present this metric in a Europe map, coloring each country regarding the number of students with home university in that country. We can see that Spain, France and Germany are leading in students enrolled in Erasmus. Surprising thing is to see that Turkey lists very high.
+
+![](misc/map-plot.png)
