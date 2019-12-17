@@ -50,8 +50,8 @@ knitr::read_chunk("./scripts/gender-script.r")
 ```
 
 
-<!-- ```{r gender_pie_plot} -->
-<!-- ``` -->
+```{r gender_pie_plot}
+```
 
 
 Next we wanted to see what are the countries with most students goint to Erasmus. In order to not just list them, we decided to present this metric in a Europe map, coloring each country regarding the number of students with home university in that country. We can see that Spain, France and Germany are leading in students enrolled in Erasmus. Surprising thing is to see that Turkey lists very high.

@@ -1,7 +1,9 @@
+## @knitr gender_pie_plot
+
 library(ggplot2)
 library(dplyr)
 
-## @knitr gender_pie_plot
+
 
 #Load data
 data <- read.csv("./data/student_1213.csv", sep=";")
