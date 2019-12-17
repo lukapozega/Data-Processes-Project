@@ -25,3 +25,4 @@ pie <- ggplot(gender, aes(x = "", y = rat, fill = gender)) +
   ggtitle("Difference between genders") +
   theme_void()
 pie
+
