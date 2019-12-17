@@ -1,5 +1,7 @@
 ## @knitr map_plot
 
+library(ggplot2)
+
 #Load data
 data <- read.csv("./data/student_1213.csv", sep=";")
 

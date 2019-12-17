@@ -1,7 +1,7 @@
+## @knitr gender_pie_plot
+
 library(ggplot2)
 library(dplyr)
-
-## @knitr gender_pie_plot
 
 #Load data
 data <- read.csv("./data/student_1213.csv", sep=";")
@@ -10,8 +10,8 @@ gender <- data[, 6]
 gender <- as.matrix(table(gender))
 colnames(gender)[1] <- "Number"
 gender <- as.data.frame(gender)
-#setDT(gender, keep.rownames = TRUE)[]
 gender$type <- rownames(gender)
+colnames(gender)[2] = "gender"
 gender <- gender %>%
   mutate(prop = 100-round(Number*100/sum(Number), 1),
          rat = round(Number*100/sum(Number), 1),
