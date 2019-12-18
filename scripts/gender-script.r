@@ -2,9 +2,10 @@
 
 library(ggplot2)
 library(dplyr)
+library(plotly)
 
 #Load data
-data <- read.csv("./data/student_1213.csv", sep=";")
+data <- read.csv("./data/student_1213.csv", sep=";", na.strings = "")
 
 gender <- data[, 6]
 gender <- as.matrix(table(gender))
@@ -17,12 +18,17 @@ gender <- gender %>%
          rat = round(Number*100/sum(Number), 1),
          ypos = cumsum(prop) - 0.6*prop)
 
-pie <- ggplot(gender, aes(x = "", y = rat, fill = gender)) +
-  geom_bar(width = 1, stat = "identity", color = "white") +
-  geom_text(aes(y = ypos, label = prop), color = "white")+
-  coord_polar("y", start = 0)+
-  ggpubr::fill_palette("jco")+
-  ggtitle("Difference between genders") +
-  theme_void()
-pie
+# pie <- ggplot(gender, aes(x = "", y = rat, fill = gender)) +
+#   geom_bar(width = 1, stat = "identity", color = "white") +
+#   geom_text(aes(y = ypos, label = prop), color = "white")+
+#   coord_polar("y", start = 0)+
+#   ggpubr::fill_palette("jco")+
+#   ggtitle("Difference between genders") +
+#   theme_void()
 
+
+p <- plot_ly(gender, labels = ~gender, values = ~rat, type = 'pie') %>%
+  layout(title = 'Difference between genders',
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+p

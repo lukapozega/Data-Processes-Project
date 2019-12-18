@@ -3,7 +3,7 @@
 library(ggplot2)
 
 #Load data
-data <- read.csv("./data/student_1213.csv", sep=";")
+data <- read.csv("./data/student_1213.csv", sep=";", na.strings = "")
 
 #Filter data
 data <- data[!data$HOST_INSTITUTION_COUNTRY_CDE == "???",]
@@ -12,10 +12,10 @@ data <- data[!data$HOST_INSTITUTION_COUNTRY_CDE == "???",]
 #home
 erasmushome <- data[, 4]
 home <- as.matrix(table(erasmushome))
-home <- rbind(home, matrix(home[3] + home[4]))
-rownames(home)[36] = "BE"
+home <- rbind(home, matrix(home[2] + home[3]))
+rownames(home)[25] = "BE"
 home <- home[order(rownames(home)), ]
-home <- home[-c(3, 4, 5)]
+home <- home[-c(2, 3, 5)]
 #host
 erasmushost <- data[, 13]
 host <- as.matrix(table(erasmushost))
@@ -84,4 +84,5 @@ europe2 <- europe + geom_polygon(data = mapbig,
     name = "",
     na.value = "grey80"
   )
-europe2
+ggplotly(europe2)
+

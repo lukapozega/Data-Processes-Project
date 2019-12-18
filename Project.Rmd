@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction and related work
 ## Introduction
-During winter semester of academic year 2019/2020 each member of our group was studying at Universidad Politécnica de Madrid through the Erasmus program. We had different choices for Erasmus destination but finally have met here in Madrid. Since we all had different reasons for applying to this University and choosing this city, we wanted to explore student's choices for Erasmus and their destinations. After searching the internet for some time we found out that European union publishes data including information about every student's exchange. Considering that this exchange is something we all have in common, we have decided to explore one of these datasets. The most interesting question that occurred to us is: **What is the most popular city or university for students in our area of study?** Then we can compare it to our own choice. We can also see how many people from our countries actually had the same choice as we did.
+During winter semester of academic year 2019/2020 each member of our group was studying at Universidad Politécnica de Madrid through the Erasmus program. We had different choices for Erasmus destination but finally have met here in Madrid. Since we all had different reasons for applying to this University and choosing this city, we wanted to explore student's choices for Erasmus and their destinations. After searching the internet for some time we found out that European union publishes data including information about every student's exchange. Considering that this exchange is something we all have in common, we have decided to explore one of these datasets. The most interesting question that occurred to us is: **What is the most popular city or university for students in our area of study? Is there a significant relationship between the destionations and the area of studies? Can we use the dataset to infer popular destinations for other areas of study?** Then we can compare it to our own choice. We can also see how many people from our countries actually had the same choice as we did.
 
 ## Related work
 * [Gender Gap in the ERASMUS Mobility Program](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4762674/)
@@ -26,7 +26,7 @@ During winter semester of academic year 2019/2020 each member of our group was s
 
 # Exploratory Data Analysis
 
-Dataset that we used is one from 2012-2013 academic year that can be found [here](https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13). Dataset is published directly by European Union. It was created from the statistical reports of the national agencies of the 33 countries participating in the Erasmus+ program (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions). The data is generated during the application process of the student and then collected by the respective universites. It contains 267547 observations and has 34 different variables.  
+The dataset that we used is one from 2012-2013 academic year that can be found [here](https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13). The dataset is published directly by European Union. It was created from the statistical reports of the national agencies of the 33 countries participating in the Erasmus+ program (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions). The data is generated during the application process of the student and then collected by the respective universites. It contains 267547 observations and has 34 different variables.  
 Host institution country is one of the most interesting variables to us and we can see that it has a lot of undefined values, around 55 thousand, so we need to filter those out. For both host and home country, values are coded as country codes. However Belgium is coded as three diferent values: "BEDE", "BEFR" and "BENL" depending on the language area (Dutch, France or German). We are going to merge all of this values to a single one for whole Belgium.  
 There are 34 different vairables and we are not going to use all of them, so we list ones that are most relevant for our research:
 
@@ -50,7 +50,7 @@ knitr::read_chunk("./scripts/gender-script.r")
 ```
 
 
-```{r gender_pie_plot}
+```{r gender_pie_plot, echo=FALSE, message=FALSE, warning=FALSE}
 ```
 
 
@@ -61,5 +61,34 @@ Next we wanted to see what are the countries with most students goint to Erasmus
 knitr::read_chunk("./scripts/map-script.r")
 ```
 
-```{r map_plot}
+```{r map_plot, echo=FALSE, message=FALSE, warning=FALSE}
 ```
+
+
+As soon as we had some general knowledge about the given data, we could get to the first part of our question. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::read_chunk("./scripts/most_popular-script.r")
+```
+
+```{r most_popular, echo=FALSE, message=FALSE, warning=FALSE}
+
+```
+
+
+
+# Methods
+In this section we discuss how we planned to answer our question. In order to be able to do so we first explored the strength of relationships within the dataset. 
+
+<!-- Try to assess relationships with regression  -->
+<!-- Problem Subject is only one variable how do we argue using more then that -->
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::read_chunk("./scripts/strength_of_relationship.r")
+```
+
+```{r strength_of_relationship, echo=FALSE, message=FALSE, warning=FALSE}
+```
+
+
+<!-- We can try to learn a cluster for predicting destinations -->
+<!-- Problem Subject is only one variable how do we argue using more then that -->
