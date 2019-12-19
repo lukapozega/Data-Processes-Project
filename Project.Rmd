@@ -74,6 +74,15 @@ knitr::read_chunk("./scripts/area-script.r")
 ```{r area_plot, echo=FALSE, message=FALSE, warning=FALSE}
 ```
 
+To explore data further, we wanted to see age distibution. At that point we noticed that there was a student that attended Erasmus at the age of 93. There were some other unordinary records as 73 and 69 years old students. Despite that we present student distribution by age of 30 where most of the students are. 22 year old students were most frequent among males, and 21 year old students among females. On this plot we can also see that there are more female students in pretty much every category.
+
+```{r, echo=FALSE}
+knitr::read_chunk("./scripts/age-script.r")
+```
+
+```{r age_plot, echo=FALSE, message=FALSE, warning=FALSE}
+```
+
 As soon as we had some general knowledge about the given data, we could get to the first part of our question. 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 knitr::read_chunk("./scripts/most_popular-script.r")
