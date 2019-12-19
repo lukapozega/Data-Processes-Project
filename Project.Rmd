@@ -64,6 +64,15 @@ knitr::read_chunk("./scripts/map-script.r")
 ```{r map_plot, echo=FALSE, message=FALSE, warning=FALSE}
 ```
 
+Other thing that was in our interest is the areas in which Erasmus is most popular. The dataset contains codes of each area adn we have used [The International Standard Classification of Education](https://ec.europa.eu/education/international-standard-classification-of-education-isced_en) to map those codes to names of areas. We have also merged areas that start with same two numbers since those are related and finally displayed statistic in form of bar plot.
+
+
+```{r, echo=FALSE}
+knitr::read_chunk("./scripts/area-script.r")
+```
+
+```{r area_plot, echo=FALSE, message=FALSE, warning=FALSE}
+```
 
 As soon as we had some general knowledge about the given data, we could get to the first part of our question. 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
