@@ -125,6 +125,29 @@ model <- glm(formula = HOST_INSTITUTION_COUNTRY_CDE ~ STUDENT_NATIONALITY_CDE + 
 
 This calculation is done much faster so we can explore strenght of realtionships properly.
 
+## Prediction
+We decided to use model trees, because using the linear regression didn't return a pleasant results (R squared was equal to 0.02)
+
+Model trees are grown in much the same way as regression trees, but
+at each leaf, a multiple linear regression model is built from the examples reaching that node.
+
+### Exploring and preparing the data 
+Two of the attributes used are  categorical data : STUDENT_NATIONALITY_CDE and STUDENT_SUBJECT_AREA_VALUE. And the machine learning algorithm that we are going to use requires the attributes to be nominale, some machine learning algorithms implemented in R studio do the dummification themselves. But not in our case, therefore we needed to one hot code this two attributes
+
+### Model trees 
+Model tree improves on regression trees by replacing the leaf nodes with regression
+models. This often results in more accurate results than regression trees, which use
+only a single value for prediction at the leaf nodes. the regression tree algorithm in Rstudio is r part 
+
+We used M5' algorithm (M5-prime) by Wang and Witten, which is an enhancement of the original M5 model tree algorithm proposed by Quinlan in 1992.
+
+### Sampling and evaluation
+We decided to train the model with 80% of the dataset and use the remaining 20% as test data.
+The model uses the test data for trying to predict the host institution.
+As measure for performance of our result we use the mean absoulte error, which is the average error between our prediction and the actual values. In addition we use the accuracy we get from our prediction.
+
+
+
 # Results
 
 ## Strenght of realtionships
@@ -229,3 +252,25 @@ R squares is usually the measurment that represents variance covered by model. L
 ```
 
 By deviding residual deviance and null deviance we are basically getting R squared and in our case it is around 18%. We can concluded that variance is poorly covered by this model.
+
+## Prediction
+Reviewing the results of our prediction approach we have to state that the M5P algorithm is not suited for this classification problem. With 27,04% accuracy less than a thrid of all instances were classified correctly. The mean absoulte error hints in a similar direction.
+
+```r
+=== Summary ===
+
+Correlation coefficient                  0.1647
+Mean absolute error                      8.2327
+Root mean squared error                  9.5352
+Relative absolute error                 97.0758 %
+Root relative squared error             98.6351 %
+Total Number of Instances                76756     
+```
+
+This implies that, on average, the difference between our model's predictions and the true HOST_INSTITUTION_COUNTRY_CDE score was about 8.23.
+With this result the given approach seems to be not appropriate.
+On an other note it can be that trying to the destition of a student with the given dataset is not a reasonable task. 
+
+
+
+

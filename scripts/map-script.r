@@ -4,7 +4,7 @@ library(ggplot2)
 
 #Load data
 data <- read.csv("./data/student_1213.csv", sep=";", na.strings = "")
-
+unique(data$HOME_INSTITUTION_CTRY_CDE)
 #Filter data
 data <- data[!data$HOST_INSTITUTION_COUNTRY_CDE == "???",]
 
