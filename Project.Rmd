@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction and related work
 ## Introduction
-During winter semester of academic year 2019/2020 each member of our group was studying at Universidad Politécnica de Madrid through the Erasmus program. We had different choices for Erasmus destination but finally have met here in Madrid. Since we all had different reasons for applying to this University and choosing this city, we wanted to explore student's choices for Erasmus and their destinations. After searching the internet for some time we found out that European union publishes data including information about every student's exchange. Considering that this exchange is something we all have in common, we have decided to explore one of these datasets. The most interesting question that occurred to us is: **What is the most popular city or university for students in our area of study? Is there a significant relationship between the destionations and the area of studies? Can we use the dataset to infer popular destinations for other areas of study?** Then we can compare it to our own choice. We can also see how many people from our countries actually had the same choice as we did.
+During winter semester of academic year 2019/2020 each member of our group was studying at Universidad Politécnica de Madrid through the Erasmus program. We had different choices for Erasmus destination but finally have met here in Madrid. Since we all had different reasons for applying to this University and choosing this city, we wanted to explore student's choices for Erasmus and their destinations. After searching the internet for some time we found out that European union publishes data including information about every student's exchange. Considering that this exchange is something we all have in common, we have decided to explore one of these datasets. The most interesting question that occurred to us is: **How does students from differnet countries, different age, gender and study area choose their Erasmus destination country?** Then we can compare it to our own choice. We can also see how many people from our countries actually had the same choice as we did.
 
 ## Related work
 * [Gender Gap in the ERASMUS Mobility Program](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4762674/)
@@ -83,7 +83,7 @@ knitr::read_chunk("./scripts/age-script.r")
 ```{r age_plot, echo=FALSE, message=FALSE, warning=FALSE}
 ```
 
-As soon as we had some general knowledge about the given data, we could get to the first part of our question. 
+Last thing we wanted to explore is what are the 10 most popular universities in Europe among students. This is a simple bar plot that shows universities and number of ERASMUS students enrolled in those universities. Sweden is leading with universities in Stockholm and Linköping, while third place belongs to university in Valencia.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 knitr::read_chunk("./scripts/most_popular-script.r")
 ```
