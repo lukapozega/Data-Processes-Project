@@ -163,7 +163,7 @@ p.m5p <- predict(m.m5p, test)
 
 # Results
 
-## Strenght of realtionships
+## Strenght of relationships
 
 Summary of our logistic regression model is presented below:
 
@@ -285,6 +285,7 @@ With this result the given approach seems to be not appropriate.
 On an other note it can be that trying to the destition of a student with the given dataset is not a reasonable task. 
 
 # Conculsion
-This project gave us insight into the composition of the ERASMUS+ process. While working with the data we came to know how this exchange program is seen from an administrative point of view. At first we had a look at the different variables and encouterd information about founds, personal information and locations. 
+This project gave us insight into the composition of the ERASMUS+ process. While working with the data we came to know how this exchange program is seen from an administrative point of view. At first we had a look at the different variables and encouterd information about founds, personal information and locations. We see that selecting ERASMUS destination is complex task. Despite that we realised that students from certain countries tend to go to specific destination probably because of the financial reasons. By knowing students nationality we can assume what their destination might be. We also realized that ERASMUS is popular among any age students, even among those that are 93 years old.  
 
+For future research we would suggest combining datasets from multiple years to get to know affections change and how does whole program evolve. Also we would propose applying different machine learning algorithms in order to obtain better results in predicting dependent variable. Finally merging multiple datasets would allow scientist to know which universities are doing good job by increasing their popularity over years, so others can learn from their progress.
 
