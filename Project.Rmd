@@ -285,6 +285,13 @@ With this result the given approach seems to be not appropriate.
 On an other note it can be that trying to the destition of a student with the given dataset is not a reasonable task. 
 
 # Conculsion
-This project gave us insight into the composition of the ERASMUS+ process. While working with the data we came to know how this exchange program is seen from an administrative point of view. At first we had a look at the different variables and encouterd information about founds, personal information and locations. 
+This project gave us insight into the composition of the ERASMUS+ process. While working with the data we came to know how this exchange program is seen from an administrative point of view. At first we had a look at the different variables and encoutered information about funds, personal information and locations. It was interesting to see how the students participationg in this journey are distributed around the continent.
+
+After getting a feeling for the dataset we moved forward with the statistical assement of the data. The greatest challange was to find the right methods because the topology of the data gave no hint how the data is distributed in respect to our stated question. While analysing the relationships within in the dataset we found out that only a subset of the features is significantly related to our response variable. 
+
+Applying the m5' algorithm to our model brought us to the conclusion that while not being the worst option this algorithm is not suited to predict the host institution. This migth partly because of the algorithm but can also be because of the dataset not being suited for such predictions
+
+# Future work
+Like we addressed in the conculsion this dataset from the European Union has a strong administative point of view. What we tried to predict and assess in this project is, in our opinion, not well captured in these variables. Future work could use this dataset for gaining insight into the decsisions of the students but would need additional information about the people behind the observations. Choosing your destitantion for ERASMUS is really a very personal one. Strongly influenced by personal experiences and preferences. Because of that it would be instresting to see if this information could improve the performance of a classification.
 
 
