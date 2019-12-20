@@ -26,7 +26,7 @@ During winter semester of academic year 2019/2020 each member of our group was s
 
 # Exploratory Data Analysis
 
-The dataset that we used is one from 2012-2013 academic year that can be found [here](https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13). The dataset is published directly by European Union. It was created from the statistical reports of the national agencies of the 33 countries participating in the Erasmus+ program (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions). The data is generated during the application process of the student and then collected by the respective universites. It contains 267547 observations and has 34 different variables.  
+The dataset that we used is one from 2012-2013 academic year that can be found [here](https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13). The dataset is published directly by European Union. It was created from the statistical reports of the national agencies of the 33 countries participating in the Erasmus+ program (Erasmus decentralised actions) and data provided by Education Audiovisual and Culture Executive Agency (Erasmus centralised actions). The data is generated during the application process of the student and then collected by the respective universities. It contains 267547 observations and has 34 different variables.  
 Host institution country is one of the most interesting variables to us and we can see that it has a lot of undefined values, around 55 thousand, so we need to filter those out. For both host and home country, values are coded as country codes. However Belgium is coded as three diferent values: "BEDE", "BEFR" and "BENL" depending on the language area (Dutch, France or German). We are going to merge all of this values to a single one for whole Belgium.  
 There are 34 different vairables and we are not going to use all of them, so we list ones that are most relevant for our research:
 
@@ -95,18 +95,137 @@ knitr::read_chunk("./scripts/most_popular-script.r")
 
 
 # Methods
-In this section we discuss how we planned to answer our question. In order to be able to do so we first explored the strength of relationships within the dataset. 
 
-<!-- Try to assess relationships with regression  -->
-<!-- Problem Subject is only one variable how do we argue using more then that -->
+## Strength of relationships
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-knitr::read_chunk("./scripts/strength_of_relationship.r")
+We want to have host country as our outcome variable and see how other variables related to it. There are 34 different variables but not all of them make sanse to include in model. After exploring dataset we decided that we need just a couple of them. Here is the formula of our model:
+```r
+HOST_INSTITUTION_COUNTRY_CDE ~ STUDENT_NATIONALITY_CDE + STUDENT_AGE_VALUE + STUDENT_SUBJECT_AREA_VALUE + STUDENT_GENDER_CDE
 ```
 
-```{r strength_of_relationship, echo=FALSE, message=FALSE, warning=FALSE}
+We also provide explanation of why we included every variable:  
+
+* STUDENT_NATIONALITY_CDE - students from same country probably tend to have similar destination for their Erasmus, considering distance, cost of life etc.
+* STUDENT_AGE_VALUE - we think that maybe older students choose better universities and younger are more interested in different cultures and lifestyle
+* STUDENT_SUBJECT_AREA_VALUE - some countires have universities that are popular among different study areas, for example Scandinavian countires have great universities for computing
+* STUDENT_GENDER_CDE - we assumed that there might be diferences in lifestyle between males and females and what they want so we included this variable
+
+First thing that comes to our mind when talking about strenght of relationships is linear model aclled by function `lm()`. However we are not having linear problem and therefore we cannot use this function. So our next option is logistic regression which has categorical variables for its outcome. Only problem here is that we don't have binary outcome which is usually the case with logistic regression, but multiple classes. Precisely, since host country is our dependent variable we have as many categories as there are countries in that column. So for dataset 2012-2013 there are 33 countries and that is how many classes we have.
+There is where multinominal model with as many classes as we want comes handy. We use `multinom()` function from package `nnet` and have specified data, formula, maximum number of weights and number of iterations.
+Finally we created a model in R with following command:
+```r
+model <- multinom(formula = HOST_INSTITUTION_COUNTRY_CDE ~ STUDENT_NATIONALITY_CDE + STUDENT_AGE_VALUE + STUDENT_SUBJECT_AREA_VALUE + STUDENT_GENDER_CDE, data = filtered, MaxNWts=3000, maxit = 20)
+```
+We adjusted the model so that is has maximum 3000 weights and 20 iterations.  
+Even thought we managed to create this model, calculating its summary just didn't end in reasonable time so we had to take another approach. Only because of this we reduced our dataset so that we have only two outcome categories `UK` and `ES`. So we are creating model with only those two classes. Now we can apply logistic regression model since the outcome is binary. Model is created by following command:
+
+```r
+model <- glm(formula = HOST_INSTITUTION_COUNTRY_CDE ~ STUDENT_NATIONALITY_CDE + STUDENT_AGE_VALUE + STUDENT_SUBJECT_AREA_VALUE + STUDENT_GENDER_CDE, data = filtered, family = binomial())
 ```
 
+This calculation is done much faster so we can explore strenght of realtionships properly.
 
-<!-- We can try to learn a cluster for predicting destinations -->
-<!-- Problem Subject is only one variable how do we argue using more then that -->
+# Results
+
+## Strenght of realtionships
+
+Summary of our logistic regression model is presented below:
+
+```r
+Call:
+glm(formula = HOST_INSTITUTION_COUNTRY_CDE ~ STUDENT_NATIONALITY_CDE + 
+    STUDENT_AGE_VALUE + STUDENT_SUBJECT_AREA_VALUE + STUDENT_GENDER_CDE, 
+    family = binomial(), data = filtered)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.8644  -0.8695  -0.5691   1.0946   3.1778  
+
+Coefficients:
+                               Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                   -0.065424   0.559370  -0.117 0.906892    
+STUDENT_NATIONALITY_CDEBE     -0.510193   0.089534  -5.698 1.21e-08 ***
+STUDENT_NATIONALITY_CDEBG     -0.201445   0.149165  -1.350 0.176862    
+STUDENT_NATIONALITY_CDECH      0.195356   0.115699   1.688 0.091320 .  
+STUDENT_NATIONALITY_CDECY     -0.082228   0.242261  -0.339 0.734295    
+STUDENT_NATIONALITY_CDECZ      0.298433   0.097206   3.070 0.002140 ** 
+STUDENT_NATIONALITY_CDEDE     -0.015585   0.073135  -0.213 0.831253    
+STUDENT_NATIONALITY_CDEDK      1.006396   0.107310   9.378  < 2e-16 ***
+STUDENT_NATIONALITY_CDEEE      0.249332   0.197660   1.261 0.207159    
+STUDENT_NATIONALITY_CDEES      4.032322   0.126069  31.985  < 2e-16 ***
+STUDENT_NATIONALITY_CDEFI      0.720312   0.096938   7.431 1.08e-13 ***
+STUDENT_NATIONALITY_CDEFR      0.380214   0.073581   5.167 2.38e-07 ***
+STUDENT_NATIONALITY_CDEGR     -0.546220   0.120104  -4.548 5.42e-06 ***
+STUDENT_NATIONALITY_CDEHR     -0.792309   0.251065  -3.156 0.001601 ** 
+STUDENT_NATIONALITY_CDEHU     -0.139422   0.127126  -1.097 0.272765    
+STUDENT_NATIONALITY_CDEIE     -0.780883   0.133951  -5.830 5.55e-09 ***
+STUDENT_NATIONALITY_CDEIS      0.167390   0.253194   0.661 0.508539    
+STUDENT_NATIONALITY_CDEIT     -0.972142   0.075588 -12.861  < 2e-16 ***
+STUDENT_NATIONALITY_CDELI    -10.305356  84.438362  -0.122 0.902863    
+STUDENT_NATIONALITY_CDELT     -0.453280   0.153101  -2.961 0.003070 ** 
+STUDENT_NATIONALITY_CDELU     -0.280322   0.391914  -0.715 0.474446    
+STUDENT_NATIONALITY_CDELV     -1.072289   0.245016  -4.376 1.21e-05 ***
+STUDENT_NATIONALITY_CDEMT      2.796590   0.416106   6.721 1.81e-11 ***
+STUDENT_NATIONALITY_CDENL      0.574346   0.086693   6.625 3.47e-11 ***
+STUDENT_NATIONALITY_CDENO      1.036971   0.125072   8.291  < 2e-16 ***
+STUDENT_NATIONALITY_CDEPL     -0.978837   0.087812 -11.147  < 2e-16 ***
+STUDENT_NATIONALITY_CDEPT     -1.108624   0.106818 -10.379  < 2e-16 ***
+STUDENT_NATIONALITY_CDERO     -0.956060   0.133953  -7.137 9.52e-13 ***
+STUDENT_NATIONALITY_CDESE      1.009450   0.097950  10.306  < 2e-16 ***
+STUDENT_NATIONALITY_CDESI     -0.754328   0.171553  -4.397 1.10e-05 ***
+STUDENT_NATIONALITY_CDESK     -0.491452   0.135884  -3.617 0.000298 ***
+STUDENT_NATIONALITY_CDETR     -0.847052   0.104855  -8.078 6.57e-16 ***
+STUDENT_NATIONALITY_CDEUK     -4.049174   0.226146 -17.905  < 2e-16 ***
+STUDENT_AGE_VALUE             -0.004137   0.005066  -0.817 0.414192    
+STUDENT_SUBJECT_AREA_VALUE1   -0.915442   0.611400  -1.497 0.134318    
+STUDENT_SUBJECT_AREA_VALUE10  -0.049669   0.705469  -0.070 0.943871    
+STUDENT_SUBJECT_AREA_VALUE14  -0.312324   0.546546  -0.571 0.567695    
+STUDENT_SUBJECT_AREA_VALUE2    0.337524   0.714199   0.473 0.636505    
+STUDENT_SUBJECT_AREA_VALUE21   0.076313   0.545027   0.140 0.888647    
+STUDENT_SUBJECT_AREA_VALUE22  -0.175862   0.543294  -0.324 0.746168    
+STUDENT_SUBJECT_AREA_VALUE3    0.169626   0.553877   0.306 0.759412    
+STUDENT_SUBJECT_AREA_VALUE31  -0.609875   0.543833  -1.121 0.262101    
+STUDENT_SUBJECT_AREA_VALUE32  -0.872924   0.547677  -1.594 0.110966    
+STUDENT_SUBJECT_AREA_VALUE34  -0.735747   0.543484  -1.354 0.175813    
+STUDENT_SUBJECT_AREA_VALUE38  -0.155832   0.544337  -0.286 0.774665    
+STUDENT_SUBJECT_AREA_VALUE4    0.179354   0.756269   0.237 0.812535    
+STUDENT_SUBJECT_AREA_VALUE42  -0.036296   0.548599  -0.066 0.947250    
+STUDENT_SUBJECT_AREA_VALUE44   0.010724   0.546164   0.020 0.984334    
+STUDENT_SUBJECT_AREA_VALUE46   0.179673   0.551668   0.326 0.744658    
+STUDENT_SUBJECT_AREA_VALUE48  -0.159184   0.549616  -0.290 0.772102    
+STUDENT_SUBJECT_AREA_VALUE5   -1.524772   0.651268  -2.341 0.019220 *  
+STUDENT_SUBJECT_AREA_VALUE52  -0.423912   0.544501  -0.779 0.436254    
+STUDENT_SUBJECT_AREA_VALUE54  -0.465939   0.559786  -0.832 0.405210    
+STUDENT_SUBJECT_AREA_VALUE58  -0.970780   0.545905  -1.778 0.075356 .  
+STUDENT_SUBJECT_AREA_VALUE6   -1.042265   0.592845  -1.758 0.078735 .  
+STUDENT_SUBJECT_AREA_VALUE62  -0.988229   0.557883  -1.771 0.076496 .  
+STUDENT_SUBJECT_AREA_VALUE64  -2.723809   0.685860  -3.971 7.15e-05 ***
+STUDENT_SUBJECT_AREA_VALUE72  -1.195239   0.546208  -2.188 0.028651 *  
+STUDENT_SUBJECT_AREA_VALUE76  -0.523986   0.563750  -0.929 0.352648    
+STUDENT_SUBJECT_AREA_VALUE8    0.368579   1.075075   0.343 0.731718    
+STUDENT_SUBJECT_AREA_VALUE81  -1.162951   0.547930  -2.122 0.033801 *  
+STUDENT_SUBJECT_AREA_VALUE84  -1.123646   0.681346  -1.649 0.099116 .  
+STUDENT_SUBJECT_AREA_VALUE85  -1.171075   0.645957  -1.813 0.069842 .  
+STUDENT_SUBJECT_AREA_VALUE86   1.129102   1.224562   0.922 0.356505    
+STUDENT_SUBJECT_AREA_VALUE90 -10.391941  84.478372  -0.123 0.902097    
+STUDENT_SUBJECT_AREA_VALUE99   0.229852   0.581121   0.396 0.692450    
+STUDENT_GENDER_CDEM            0.150036   0.023913   6.274 3.51e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 63615  on 48489  degrees of freedom
+Residual deviance: 51770  on 48423  degrees of freedom
+AIC: 51904
+```
+
+In the rightmost column we see the p-values as well as indicator of significance of eace independent variable. We can see that age makes no impact on the output variable since its p-value is too big. Gender, however, has very small p-value therefore it is a significant predictor. When it comes to study area, it can be easily concluded that this variable does not play significant role in estimating host country. Finally interesting thing to see is that most of categories in nationality are actually significant so we can say that it is correlated with dependent variable.  
+
+R squares is usually the measurment that represents variance covered by model. Logisttic regression model uses maximum likelihood to fit the function to data, and therefore does not minimize sqaured error. For that reason R sqaured is not outputed in summary. However we can use following formula to get sense of covered variance:
+
+```r
+1-(model1$deviance/model1$null.deviance)
+```
+
+By deviding residual deviance and null deviance we are basically getting R squared and in our case it is around 18%. We can concluded that variance is poorly covered by this model.

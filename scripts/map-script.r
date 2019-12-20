@@ -12,10 +12,10 @@ data <- data[!data$HOST_INSTITUTION_COUNTRY_CDE == "???",]
 #home
 erasmushome <- data[, 4]
 home <- as.matrix(table(erasmushome))
-home <- rbind(home, matrix(home[2] + home[3]))
-rownames(home)[25] = "BE"
+home <- rbind(home, matrix(home[3] + home[4]))
+rownames(home)[36] = "BE"
 home <- home[order(rownames(home)), ]
-home <- home[-c(2, 3, 5)]
+home <- home[-c(3, 4, 5)]
 #host
 erasmushost <- data[, 13]
 host <- as.matrix(table(erasmushost))
