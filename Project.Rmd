@@ -148,6 +148,17 @@ We decided to train the model with 80% of the dataset and use the remaining 20% 
 The model uses the test data for trying to predict the host institution.
 As measure for performance of our result we use the mean absoulte error, which is the average error between our prediction and the actual values. In addition we use the accuracy we get from our prediction.
 
+```r
+dt = sort(sample(nrow(df_reg), nrow(df_reg)*.8))
+train<-df_reg[dt,]
+test<-df_reg[-dt,]
+
+# Train
+m.m5p <- M5P(HOST_INSTITUTION_COUNTRY_CDE ~ ., data = train)
+
+# Predict
+p.m5p <- predict(m.m5p, test)
+```
 
 
 # Results
@@ -273,6 +284,7 @@ This implies that, on average, the difference between our model's predictions an
 With this result the given approach seems to be not appropriate.
 On an other note it can be that trying to the destition of a student with the given dataset is not a reasonable task. 
 
-
+# Conculsion
+This project gave us insight into the composition of the ERASMUS+ process. While working with the data we came to know how this exchange program is seen from an administrative point of view. At first we had a look at the different variables and encouterd information about founds, personal information and locations. 
 
 
